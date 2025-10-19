@@ -10,7 +10,7 @@
 
 header nav .logo {
     flex: 1;
-    font-size: 1.5;
+    font-size: 1.5rem;
 }
 
 header nav input[type="search"] {
@@ -23,6 +23,8 @@ header nav input[type="search"] {
 
 header nav a {
     margin-left: 40px;
-    flex-shrink: 0;
-    align-items: right;
+}
+
+{
+    font-size: 1.5rem
 }
