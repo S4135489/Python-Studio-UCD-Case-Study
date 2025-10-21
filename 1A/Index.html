@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Vaccine Trends</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top-bar">
+    <img src="download.png" alt="WHO Logo" class="logo-img">
+
+    <input type="text" placeholder="Search..." class="search-bar">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Global Vaccine Trends</h1>
+    <div class="container">
+      <button class="arrow left" onclick="rotateBoxes()">◀</button>
+
+      <div class="card" id="card1"></div>
+      <div class="card" id="card2"></div>
+      <div class="card" id="card3"></div>
+
+      <button class="arrow right" onclick="rotateBoxes()">▶</button>
+    </div>
+
+    <button class="btn">EXPLORE MORE</button>
+  </main>
+
+  <script>
+    // Different sets of box data
+    const dataSets = [
+      [
+        { title: "Flu Vaccine Percentage in Australia", value: "95%" },
+        { title: "Total Vaccines Administered", value: "3.2 Bill" },
+        { title: "Total Cases of Preventable Diseases", value: "25 Mill" }
+      ],
+      [
+        { title: "Category A", value: "Info A" },
+        { title: "Category B", value: "Info B" },
+        { title: "Category C", value: "Info C" }
+      ],
+      [
+        { title: "Global Immunisation Rate", value: "91%" },
+        { title: "Countries Tracked", value: "195" },
+        { title: "Recovered Cases", value: "78 Mill" }
+      ]
+    ];
+
+    let currentSet = 0;
+
+    // Function to update card content
+    function updateCards() {
+      const cards = document.querySelectorAll('.card');
+      const data = dataSets[currentSet];
+      cards.forEach((card, index) => {
+        card.innerHTML = `<p>${data[index].title}</p><h2>${data[index].value}</h2>`;
+      });
+    }
+
+    // Function to rotate between sets
+    function rotateBoxes() {
+      currentSet = (currentSet + 1) % dataSets.length;
+      updateCards();
+    }
+
+    // Initialize first set
+    updateCards();
+  </script>
+</body>
+</html>
